@@ -1,6 +1,6 @@
 var locations = [];
 
-  $.ajax({
+$.ajax({
     method: 'get',
     url: 'https://data.cityofchicago.org/resource/uh4d-zh38?$$app_token=Prn58WX99dW48gNx4RtzbOjIy',
     dataType: 'json'
@@ -26,4 +26,4 @@ var locations = [];
         }
       })(marker, i));
     };
-    });
+  });

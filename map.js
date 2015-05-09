@@ -61,12 +61,12 @@ var bikeLayer = new google.maps.BicyclingLayer();
     geocoder.geocode( { 'address': address}, function(results, status) {
       console.log(results[0].geometry.location);
       if (status == google.maps.GeocoderStatus.OK) {
-        var map = new google.maps.Map(document.getElementById('map'));
         map.setCenter(results[0].geometry.location);
         map.setZoom(16);
         var marker = new google.maps.Marker({
             map: map,
             position: results[0].geometry.location,
+            image: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
         });
       } else {
         alert("Geocode was not successful for the following reason: " + status);
@@ -76,4 +76,3 @@ var bikeLayer = new google.maps.BicyclingLayer();
 
 
 google.maps.event.addDomListener(window, 'load', initializeMap);
-// google.maps.event.addDomListener(window, 'load', renderMarkers);
