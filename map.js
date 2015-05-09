@@ -1,6 +1,7 @@
 console.log("map loaded!")
+var map
 
-function initialize(){
+function initializeMap(){
 var defaultCenter = new google.maps.LatLng(41.893974, -87.627945);
 
 var defaultOptions = {
@@ -9,7 +10,7 @@ var defaultOptions = {
   mapTypeId: google.maps.MapTypeId.ROADMAP
 }
 
-var map = new google.maps.Map(document.getElementById('map'), defaultOptions);
+map = new google.maps.Map(document.getElementById('map'), defaultOptions);
 
 var bikeLayer = new google.maps.BicyclingLayer();
   bikeLayer.setMap(map)
@@ -74,4 +75,5 @@ var bikeLayer = new google.maps.BicyclingLayer();
   }
 
 
-google.maps.event.addDomListener(window, 'load', initialize);
+google.maps.event.addDomListener(window, 'load', initializeMap);
+// google.maps.event.addDomListener(window, 'load', renderMarkers);
