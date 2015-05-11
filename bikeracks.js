@@ -13,10 +13,20 @@ $.ajax({
       console.log(data);
       var marker;
 
+
+      var image = {
+        url: 'bikeicon.png',
+        size: new google.maps.Size(100, 100),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(45, 45)
+      };
+
       for (var i = 0; i < locations.length; i++) {
         marker = new google.maps.Marker({
           position: new google.maps.LatLng(locations[i].latitude, locations[i].longitude),
-          map: map
+          map: map,
+          icon: image,
         });
 
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
