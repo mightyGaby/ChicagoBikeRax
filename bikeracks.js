@@ -3,7 +3,7 @@ var locations = [];
 $.ajax({
     method: 'get',
     url: 'https://data.cityofchicago.org/resource/uh4d-zh38?$$app_token=Prn58WX99dW48gNx4RtzbOjIy',
-    dataType: 'json'
+    dataType: 'json',
     })
     .done(function(data){
       // data = data.slice(1,data.length/2);

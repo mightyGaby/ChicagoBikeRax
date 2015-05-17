@@ -56,10 +56,12 @@ var bikeLayer = new google.maps.BicyclingLayer();
 
   var geocoder = new google.maps.Geocoder();
 
+  var addresscode;
   function codeAddress() {
     var address = document.getElementById("address").value;
     geocoder.geocode( { 'address': address}, function(results, status) {
       console.log(results[0].geometry.location);
+      addresscode=results[0].geometry.location
       if (status == google.maps.GeocoderStatus.OK) {
         map.setCenter(results[0].geometry.location);
         map.setZoom(16);
