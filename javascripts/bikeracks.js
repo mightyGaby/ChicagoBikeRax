@@ -1,5 +1,5 @@
 var locations = [];
-
+$( document ).ready(function() {
 $.ajax({
     method: 'get',
     url: 'https://data.cityofchicago.org/resource/uh4d-zh38?$$app_token=Prn58WX99dW48gNx4RtzbOjIy',
@@ -29,11 +29,18 @@ $.ajax({
           icon: image,
         });
 
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent(locations[i][0]);
-          infowindow.open(map, marker);
-        }
+          google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            var contentString = '<div class="infowindow">' + locations[i].address + '</div>';
+              //marker.something = contentString to set value
+              return function(infowindow) {
+                //var infowindow = ?
+                //infowindow.setContent(contentString);
+                //infowindow.open(mapName, marker);
+              }
       })(marker, i));
+
     };
   });
+
+
+});
