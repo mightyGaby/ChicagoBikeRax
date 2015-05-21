@@ -1,11 +1,14 @@
-#wrapper{
-  margin: 0 auto;
+div{
+  text-align: center;
 }
 
-#search{
-  padding: 10px;
-}
-
-#banner{
+#map{
   width: 100%;
+  height: 500px;
+}
+
+hr{
+  padding: 0;
+  margin: 0;
+  clear: both;
 }

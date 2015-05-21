@@ -25,8 +25,7 @@ $.ajax({
       for (var i = 0; i < locations.length; i++) {
         marker = new google.maps.Marker({
           position: new google.maps.LatLng(locations[i].latitude, locations[i].longitude),
-          map: map,
-          icon: image,
+          map: map
         });
 
           google.maps.event.addListener(marker, 'click', (function(marker, i) {
