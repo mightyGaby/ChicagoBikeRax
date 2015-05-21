@@ -55,8 +55,9 @@ var bikeLayer = new google.maps.BicyclingLayer();
 }
 
   var geocoder = new google.maps.Geocoder();
-
   var addresscode;
+  var image = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';
+
   function codeAddress() {
     var address = document.getElementById("address").value;
     geocoder.geocode( { 'address': address}, function(results, status) {
@@ -68,7 +69,7 @@ var bikeLayer = new google.maps.BicyclingLayer();
         var marker = new google.maps.Marker({
             map: map,
             position: results[0].geometry.location,
-            image: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+            icon: image
         });
       } else {
         alert("Geocode was not successful for the following reason: " + status);
