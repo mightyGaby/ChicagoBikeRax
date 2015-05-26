@@ -12,8 +12,12 @@ var defaultOptions = {
 
 map = new google.maps.Map(document.getElementById('map'), defaultOptions);
 
-var bikeLayer = new google.maps.BicyclingLayer();
-  bikeLayer.setMap(map)
+
+$("#bike-toggle").click(function(){
+  console.log("toggle")
+  var bikeLayer = new google.maps.BicyclingLayer();
+  bikeLayer.setMap(map);
+})
 
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -34,7 +38,6 @@ var bikeLayer = new google.maps.BicyclingLayer();
     // Browser doesn't support Geolocation
     handleNoGeolocation(false);
   }
-
 
   function handleNoGeolocation(errorFlag) {
     if (errorFlag) {

@@ -1,4 +1,5 @@
-var locations = [];
+var marker;
+var markers = [];
 $( document ).ready(function() {
 $.ajax({
     method: 'get',
@@ -6,40 +7,30 @@ $.ajax({
     dataType: 'json',
     })
     .done(function(data){
-      // data = data.slice(1,data.length/2);
-      for(var i=0; i<data.length; i++){
-        locations.push(data[i]);
-      };
       console.log(data);
-      var marker;
 
+      // var image = {
+      //   url: 'bikeicon.png',
+      //   size: new google.maps.Size(100, 100),
+      //   origin: new google.maps.Point(0, 0),
+      //   anchor: new google.maps.Point(17, 34),
+      //   scaledSize: new google.maps.Size(45, 45)
+      // };
 
-      var image = {
-        url: 'bikeicon.png',
-        size: new google.maps.Size(100, 100),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(17, 34),
-        scaledSize: new google.maps.Size(45, 45)
-      };
-
-      for (var i = 0; i < locations.length; i++) {
+      for (var i = 0; i < data.length; i++) {
         marker = new google.maps.Marker({
-          position: new google.maps.LatLng(locations[i].latitude, locations[i].longitude),
+          position: new google.maps.LatLng(data[i].latitude, data[i].longitude),
           map: map,
+          title: data[i].address
         });
 
-          google.maps.event.addListener(marker, 'click', (function(marker, i) {
-            var contentString = '<div class="infowindow">' + locations[i].address + '</div>';
-              //marker.something = contentString to set value
-              return function(infowindow) {
-                //var infowindow = ?
-                //infowindow.setContent(contentString);
-                //infowindow.open(mapName, marker);
-              }
-      })(marker, i));
-
-    };
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        var markerAddress = marker.title;
+        return function() {
+          console.log(markerAddress)
+        }
+        })(marker, i));
+      };
   });
-
 
 });
