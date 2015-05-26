@@ -1,6 +1,3 @@
-var marker;
-var markers = [];
-$( document ).ready(function() {
 $.ajax({
     method: 'get',
     url: 'https://data.cityofchicago.org/resource/uh4d-zh38?$$app_token=Prn58WX99dW48gNx4RtzbOjIy',
@@ -28,9 +25,8 @@ $.ajax({
         var markerAddress = marker.title;
         return function() {
           console.log(markerAddress)
+          $("#saved").append("<li>"+ markerAddress + "</li>");
         }
         })(marker, i));
       };
   });
-
-});
